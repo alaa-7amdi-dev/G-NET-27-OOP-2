@@ -25,7 +25,7 @@
             //B=> Yes :A property is essentially a pair of methods (get/set) to access field.
 
             /////////////////////////////
-            
+
             //(C)=>
             /*
              privat double _width;
@@ -43,6 +43,26 @@
                   }
              */
             #endregion
+
+            #region Q3
+            //A:
+            //An indexer=> that lets an object be accessed like an array using [] syntax.
+
+            //B:
+
+            // will throw exception ArgementOutOfRange of an array , should validation 
+            // before adding;
+
+            //  StudentRegister student = new StudentRegister();
+            //student[10] = "alaa";
+
+
+            //C : yes , but when the signatures is diffrence in( number of parameters , type ... , order ..)
+                 //example in StudentRegister class.
+            #endregion
+
+
         }
     }
+
 }
