@@ -58,7 +58,16 @@
 
 
             //C : yes , but when the signatures is diffrence in( number of parameters , type ... , order ..)
-                 //example in StudentRegister class.
+            //example in StudentRegister class.
+            #endregion
+
+            #region Q4
+            // The static keyword means that a member belongs to the type itself not to a specific object instance and shared in the class which it belongs.
+            // field item is a puplic member belongs to a specific object instance.
+
+            ////////
+            //(B):
+            /// No , the static member belongs to a class itself, no to any object, therefore cannot access instance member directly.
             #endregion
 
 
