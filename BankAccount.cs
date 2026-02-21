@@ -10,6 +10,7 @@ namespace G_NET_27_OOP_2
     {
         private string _owner=default!;
         private double _balance;
+       
 
         public void Withdrow(double balane)
         {
