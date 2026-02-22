@@ -1,4 +1,6 @@
-﻿namespace G_NET_27_OOP_2
+﻿using System.Reflection.Metadata;
+
+namespace G_NET_27_OOP_2
 {
     internal class Program
     {
@@ -70,6 +72,64 @@
             /// No , the static member belongs to a class itself, no to any object, therefore cannot access instance member directly.
             #endregion
 
+            #region Part 02
+            Cinema cinema = new Cinema();
+            Console.WriteLine("#######TicketBooking#######");
+            for (int i = 0; i < 3; i++) 
+            {
+                
+                Console.WriteLine($"Enter data for Ticket {i+1} :");
+                Console.Write("Movie Name :");
+                string? movieName = Console.ReadLine();
+                Console.Write("Ticket Type (0=Standar 1=Vip 2=IMAX) :");
+                TicketType ticketType = (TicketType)int.Parse(Console.ReadLine());
+                Console.Write("Seat Row (A=>z) :");
+                char row = char.Parse(Console.ReadLine());
+                Console.Write("Seat Number :");
+                int number = int.Parse(Console.ReadLine());
+                Console.Write("Price : ");
+                double price = double.Parse(Console.ReadLine());
+
+                Seat seat = new Seat(row, number);
+                Ticket ticket = new Ticket(movieName, ticketType, seat, price);
+
+                cinema.AddTicket(ticket);
+            }
+
+            for (int i = 0; i < 3; i++)
+            {
+                Ticket t = cinema[i];
+                Console.WriteLine($"Ticket #{t.TicketId} | {t.MovieName} | {t.Type} | " +
+                                  $"Seat: {t.seat} | Price: {t.Price} EGP | " +
+                                  $"After Tax: {t.PriceAfterTax} EGP");
+            }
+
+
+
+            Console.Write("Enter Movie Name");
+            string Monvie = Console.ReadLine();
+
+            Ticket search = cinema.GetMovie(Monvie);
+            if (search != null)
+            {
+                Console.WriteLine($"{search.MovieName} | {search.Type} | {search.seat} | {search.Price}");
+            }
+            else 
+            {
+                Console.WriteLine("No Found");
+            }
+
+            Console.WriteLine($"Total Tickets Soild = {Ticket.GetTotalTicketsSold()}");
+
+            
+            Console.WriteLine($"Booking Reference 1 : {BookingHelper.GenerateBookingReference()}");
+            Console.WriteLine($"Booking Reference 2 : {BookingHelper.GenerateBookingReference()}");
+
+            
+            Console.WriteLine($" Group Discount (5 tickets x 80 EGP): {BookingHelper.CalcGroupDiscount(5, 80)} EGP (10% off applied)");
+
+
+            #endregion
 
         }
     }
